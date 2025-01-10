@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome To The Jungle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            background: rgb(243, 199, 110);
+            background: linear-gradient(180deg, rgba(243, 199, 110, 1) 0%, rgba(236, 131, 113, 1) 100%);
+            font-family: Arial, sans-serif;
+        }
+    
+        .container {
+            width: 90%;
+            max-width: 600px;
+            height: 90%;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+    
+        .container::-webkit-scrollbar {
+            display: none;
+        }
+    
+        .header {
+            height: 25%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .header img {
+            max-width: 100%;
+            height: auto;
+        }
+    
+        .buttons {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    
+        .linha {
+            display: flex;
+            justify-content: space-between;
+            gap: 5px;
+        }
+    
+        .linha img {
+            flex: 1;
+            max-width: 30%;
+            height: auto;
+            cursor: pointer;
+        }
+    
+        .feed {
+            margin-top: 10px;
+            width: 100%;
+        }
+    
+        .feed img {
+            max-width: 100%;
+            height: auto;
+        }
+    
+        /* Regras de mídia para dispositivos menores */
+        @media (max-width: 768px) {
+            .header {
+                height: 20%;
+            }
+    
+            .linha img {
+                max-width: 30%;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+                height: 95%;
+            }
+    
+            .buttons {
+                gap: 5px;
+            }
+    
+            .linha img {
+                max-width: 30%;
+                margin: 0 2px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="./header.png" alt="">
+        </div>
+        <div class="buttons">
+            <div class="linha">
+                <img src="./beach-buttom-light.png" id="beach" alt="" name="light">
+                <img src="./cultura-button-dark.png" id="cultura" alt="" name="dark">
+                <img src="./eco-turismo-button-dark.png" id="turismo" alt="" name="dark">
+            </div>
+            <div class="linha">
+                <img src="./festival-button-dark.png" id="festival" alt="" name="dark">
+                <img src="./gastronomic-button-dark.png" id="gastronomic" alt="" name="dark">
+                <img src="./night-life-button-dark.png" id="night" alt="" name="dark">
+            </div>
+        </div>
+        <div class="feed"> 
+            <img src="./feed-beach.png" id="feed" alt="">
+        </div>
+    </div>
+    <script>// Seleciona a imagem pelo ID
+        const beach = document.getElementById('beach');
+        const cultura = document.getElementById('cultura');
+        const turismo = document.getElementById('turismo');
+        const festival = document.getElementById('festival');
+        const gastronomic = document.getElementById('gastronomic');
+        const night = document.getElementById('night');
+
+        const feed = document.getElementById('feed');
+    
+        beach.addEventListener('click', () => {
+          if(beach.getAttribute('name') == "dark"){
+
+            feed.src="./feed-beach.png";
+
+            beach.src = "./beach-buttom-light.png";
+            beach.setAttribute('name', "light");
+
+            cultura.src="./cultura-button-dark.png";
+            cultura.setAttribute('name', "dark");
+
+            turismo.src = "./eco-turismo-button-dark.png"
+            turismo.setAttribute('name', 'dark');
+
+            festival.src = "./festival-button-dark.png";
+            festival.setAttribute('name', 'dark');
+
+            gastronomic.src="./gastronomic-button-dark.png";
+            gastronomic.setAttribute('name', 'dark');
+
+            night.src = "./night-life-button-dark.png";
+            night.setAttribute('name', 'dark');
+          }else{
+            beach.src = "./beach-buttom-dark.png"
+            beach.setAttribute('name', "dark");
+            feed.src="";
+          }
+        });
+
+        cultura.addEventListener('click', () => {
+            if(cultura.getAttribute('name') == "dark"){
+
+              feed.src="./culture-feed.png";
+                
+              beach.src = "./beach-buttom-dark.png"
+              beach.setAttribute('name', "dark");
+  
+              cultura.src="./cultura-button-light.png";
+              cultura.setAttribute('name', "light");
+  
+              turismo.src = "./eco-turismo-button-dark.png"
+              turismo.setAttribute('name', 'dark');
+  
+              festival.src = "./festival-button-dark.png";
+              festival.setAttribute('name', 'dark');
+  
+              gastronomic.src="./gastronomic-button-dark.png";
+              gastronomic.setAttribute('name', 'dark');
+  
+              night.src = "./night-life-button-dark.png";
+              night.setAttribute('name', 'dark');
+            }else{
+                cultura.src = "./cultura-button-dark.png"
+                cultura.setAttribute('name', "dark");
+                feed.src="";
+            }
+          });
+
+          turismo.addEventListener('click', () => {
+            if(turismo.getAttribute('name') == "dark"){
+
+              feed.src="./eco-turismo-feed.png";
+                
+              beach.src = "./beach-buttom-dark.png"
+              beach.setAttribute('name', "dark");
+  
+              cultura.src="./cultura-button-dark.png";
+              cultura.setAttribute('name', "dark");
+  
+              turismo.src = "./eco-turismo-button-light.png"
+              turismo.setAttribute('name', 'light');
+  
+              festival.src = "./festival-button-dark.png";
+              festival.setAttribute('name', 'dark');
+  
+              gastronomic.src="./gastronomic-button-dark.png";
+              gastronomic.setAttribute('name', 'dark');
+  
+              night.src = "./night-life-button-dark.png";
+              night.setAttribute('name', 'dark');
+            }else{
+                turismo.src = "./eco-turismo-button-dark.png"
+                turismo.setAttribute('name', "dark");
+                feed.src="";
+            }
+          });
+
+          festival.addEventListener('click', () => {
+            if(festival.getAttribute('name') == "dark"){
+
+              feed.src="./evento-feed.png";
+
+              beach.src = "./beach-buttom-dark.png"
+              beach.setAttribute('name', "dark");
+  
+              cultura.src="./cultura-button-dark.png";
+              cultura.setAttribute('name', "dark");
+  
+              turismo.src = "./eco-turismo-button-dark.png"
+              turismo.setAttribute('name', 'dark');
+  
+              festival.src = "./festival-button-light.png";
+              festival.setAttribute('name', 'light');
+  
+              gastronomic.src="./gastronomic-button-dark.png";
+              gastronomic.setAttribute('name', 'dark');
+  
+              night.src = "./night-life-button-dark.png";
+              night.setAttribute('name', 'dark');
+            }else{
+                festival.src = "./festival-button-dark.png"
+                festival.setAttribute('name', "dark");
+                feed.src="";
+            }
+          });
+
+          gastronomic.addEventListener('click', () => {
+            if(gastronomic.getAttribute('name') == "dark"){
+              beach.src = "./beach-buttom-dark.png"
+              beach.setAttribute('name', "dark");
+
+              feed.src="./feed-gastronomia.png";
+  
+              cultura.src="./cultura-button-dark.png";
+              cultura.setAttribute('name', "dark");
+  
+              turismo.src = "./eco-turismo-button-dark.png"
+              turismo.setAttribute('name', 'dark');
+  
+              festival.src = "./festival-button-dark.png";
+              festival.setAttribute('name', 'dark');
+  
+              gastronomic.src="./gastronomic-button-light.png";
+              gastronomic.setAttribute('name', 'light');
+  
+              night.src = "./night-life-button-dark.png";
+              night.setAttribute('name', 'dark');
+            }else{
+                gastronomic.src = "./gastronomic-button-dark.png"
+                gastronomic.setAttribute('name', "dark");
+                feed.src="";
+            }
+          });
+
+          night.addEventListener('click', () => {
+            if(night.getAttribute('name') == "dark"){
+
+              feed.src="./feed-vida-noturna.png";
+
+              beach.src = "./beach-buttom-dark.png"
+              beach.setAttribute('name', "dark");
+  
+              cultura.src="./cultura-button-dark.png";
+              cultura.setAttribute('name', "dark");
+  
+              turismo.src = "./eco-turismo-button-dark.png"
+              turismo.setAttribute('name', 'dark');
+  
+              festival.src = "./festival-button-dark.png";
+              festival.setAttribute('name', 'dark');
+  
+              gastronomic.src="./gastronomic-button-dark.png";
+              gastronomic.setAttribute('name', 'dark');
+  
+              night.src = "./night-life-button-light.png";
+              night.setAttribute('name', 'light');
+            }else{
+                night.src = "./night-life-button-dark.png"
+                night.setAttribute('name', "dark");
+                feed.src="";
+            }
+          });
+        
+    </script>
+</body>
+</html>
